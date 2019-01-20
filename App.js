@@ -1,13 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import React from 'react'
+import { Provider, } from 'react-redux'
+import { Platform, StatusBar, StyleSheet, View, Text, } from 'react-native'
+import { AppLoading, Asset, Font, Icon, } from 'expo'
+import AppNavigator from './navigation/AppNavigator'
+import store from './store'
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+      <Provider store={store}>
+        <AppNavigator/>
+      </Provider>
+    )
   }
 }
 
@@ -18,4 +21,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
